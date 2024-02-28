@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search in Wikipedia</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="alertInfo" class="alert alert-danger">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"><i class="fas fa-times"></i></span>
+                <span id="alertText"></span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search in Wikipedia..." onkeydown="handleKeyPress(event)">
+                <button type="button" onclick="search()"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
