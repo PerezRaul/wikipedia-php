@@ -18,12 +18,16 @@ function search() {
 
 function fetchResults(text) {
     fetch('https://es.wikipedia.org/w/api.php?action=query&format=json&variant=en&origin=*&list=search&utf8=1&srsearch=' + text)
-        .then(response => response.json())
+        .then(response => {
+            return response.json();
+        })
         .then(data => {
             displayResults(data.query.search);
             saveHistory(text, data.query.search);
         })
-        .catch(error => showAlert('alert-danger', 'Error al obtener resultados: ' + error));
+        .catch(error => {
+            showAlert('alert-danger', 'Error al obtener resultados: ' + error);
+        });
 }
 
 function displayResults(results) {
@@ -64,10 +68,10 @@ function saveHistory(text, results) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            showAlert('alert-success', data.message);
         })
         .catch(error => {
-            console.error('Error al guardar datos:', error);
+            showAlert('alert-danger', 'An error occurred: ' + error);
         });
 }
 
