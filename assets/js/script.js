@@ -53,7 +53,7 @@ function saveHistory(text, results) {
         results: results
     };
 
-    fetch('/functions/WikipediaHistory/HistoryController.php?action=save', {
+    fetch('/controllers/history/HistoryController.php?action=save', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
